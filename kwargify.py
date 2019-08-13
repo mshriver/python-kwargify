@@ -11,7 +11,7 @@ def kwargify(a_callable):
     else:
         _method = hasattr(a_callable, "im_func") or type(a_callable).__name__ == "method"
     _defaults = {}
-    argspec = inspect.getargspec(a_callable)
+    argspec = inspect.getfullargspec(a_callable)
     if _method:
         _args = argspec.args[1:]
     else:
